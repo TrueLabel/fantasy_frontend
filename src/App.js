@@ -68,7 +68,7 @@ const App = () => {
           </div>
         )
       })}
-      <AddTeam />
+      <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
 
     </>
   )
