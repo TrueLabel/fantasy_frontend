@@ -1,9 +1,10 @@
+import '../App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const AddTeam = (props) => {
   let [players, setPlayers] = useState([])
-  let [newTeam, setNewTeam] = useState([])
+  let [playersString, setPlayerString] = useState([])
 
   const getPlayers = () => {
     axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
@@ -17,18 +18,34 @@ const AddTeam = (props) => {
     getPlayers()
   }, [])
 
+
+
   return (
     <>
       <h4>Add Team Component</h4>
-      {players.map((player) => {
-        return (
-          <div>
-            {player.Name}, {player.Team}, {player.Position}, {player.ProjectedFantasyPoints}
-            <br />
-            <br />
-          </div>
-        )
-      })}
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <td>Name</td>
+            <td>ID</td>
+            <td>Team</td>
+          </tr>
+        </thead>
+        <tbody>
+        {players.map((player,index) => {
+          return (
+            <tr>
+              <td>{index}</td>
+              <td>{player.Name}</td>
+              <td>{player.PlayerID}</td>
+              <td>{player.Team}</td>
+            </tr>
+          )
+        })}
+        </tbody>
+      </table>
+
     </>
   )
 }
