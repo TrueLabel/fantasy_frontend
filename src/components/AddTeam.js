@@ -58,7 +58,7 @@ const AddTeam = (props) => {
 
   return (
     <div className='showhide' id='addteam'>
-    
+
       <h4>Add Team Component</h4>
       Current players on team:
       {newTeam.players}
