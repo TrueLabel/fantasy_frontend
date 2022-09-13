@@ -47,6 +47,7 @@ const App = () => {
     })
   }
 
+  
   useEffect(() => {
     getTeams()
   }, [])
