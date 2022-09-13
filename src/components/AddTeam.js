@@ -8,8 +8,8 @@ const AddTeam = (props) => {
   const getPlayers = () => {
     axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
     .then((response) => {
-      console.log(response.data.slice(0,49))
-      setPlayers(response.data.slice(0,49))
+      console.log(response.data.slice(0,9))
+      setPlayers(response.data.slice(0,9))
     })
   }
 
@@ -22,7 +22,7 @@ const AddTeam = (props) => {
       <h4>Add Team Component</h4>
       {players.map((player) => {
         return (
-          <div>
+          <div className='grid container'>
             {player.Name}, {player.Team}, {player.Position}, {player.ProjectedFantasyPoints}
             <br />
             <br />
