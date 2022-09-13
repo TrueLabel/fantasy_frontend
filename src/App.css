@@ -7,6 +7,25 @@
   pointer-events: none;
 }
 
+.showhide {
+  display:none;
+}
+
+#addteam {
+  width: 100%;
+  z-index: 5;
+  background-color: rgb(251, 251, 251);
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+#topaddteambutton {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
