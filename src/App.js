@@ -47,6 +47,7 @@ const App = () => {
     })
   }
 
+  
   useEffect(() => {
     getTeams()
   }, [])
@@ -64,3 +65,4 @@ const App = () => {
 }
 
 export default App;
+
