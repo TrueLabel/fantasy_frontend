@@ -15,7 +15,7 @@ const App = () => {
   //let [newTeam, setNewTeam] = useState({name: '', players: ''})
 
   const getTeams = () => {
-    axios.get('http://localhost:8000/api/team')
+    axios.get('https://fierce-ocean-36761.herokuapp.com/api/team')
     .then((response) => {
       setTeams(response.data)
     })
@@ -32,7 +32,7 @@ const App = () => {
 
 
   const handleCreateTeam = (addedTeam) => {
-    axios.post('http://localhost:8000/api/team', addedTeam)
+    axios.post('https://fierce-ocean-36761.herokuapp.com/api/team', addedTeam)
     .then((response) => {
       console.log(response);
       getTeams()
@@ -41,7 +41,7 @@ const App = () => {
 
   const handleDeleteTeam = (event) => {
     axios
-    .delete('http://localhost:8000/api/team/' + event.target.value)
+    .delete('https://fierce-ocean-36761.herokuapp.com/api/team/' + event.target.value)
     .then((response) => {
       getTeams()
     })
