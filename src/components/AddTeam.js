@@ -6,7 +6,7 @@ const AddTeam = (props) => {
   let [playersAPI, setPlayersAPI] = useState([])
   let [newTeam, setNewTeam] = useState({name: '', players: ''})
   let [pickedPlayersString, setPickedPlayersString] = useState('')
-
+  let [teamName, setTeamName] = useState('Test')
 
   const getPlayersAPI = () => {
     axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
@@ -22,17 +22,23 @@ const AddTeam = (props) => {
 
   const addPlayerString = (event) => {
     console.log(event.target.value);
-    pickedPlayersString.length > 1 ?
-      setPickedPlayersString(pickedPlayersString + ', ' + event.target.value)
+    console.log(newTeam.players);
+    newTeam.players.length > 1 ?
+      setNewTeam({name: teamName, players: newTeam.players + ',' + event.target.value})
+      //setPickedPlayersString(pickedPlayersString + ', ' + event.target.value)
         :
-      setPickedPlayersString(event.target.value)
-    console.log(pickedPlayersString);
+      setNewTeam({name: teamName, players: event.target.value})
+      //setPickedPlayersString(event.target.value)
+    //updateString()
+  }
+
+  const updateString = () => {
+    setNewTeam({name: teamName, players: pickedPlayersString})
+    console.log(newTeam);
   }
 
   const handleSubmitNewTeam = (event) => {
     event.preventDefault()
-    let teamName = props.teams.length + 1
-    setNewTeam({name: 'Team ' + teamName, players: pickedPlayersString})
     props.handleCreateTeam(newTeam)
     setNewTeam({name: '', players: ''})
   }
@@ -45,7 +51,7 @@ const AddTeam = (props) => {
     <>
       <h4>Add Team Component</h4>
       Current players on team:
-
+      {newTeam.players}
       <button onClick={handleSubmitNewTeam}>Submit Team</button>
       <table>
         <thead>
@@ -59,17 +65,16 @@ const AddTeam = (props) => {
         <tbody>
         {playersAPI.map((player,index) => {
           return (
-            <>
-            <tr>
+            <tr key={player.PlayerID}>
               <td>{index + 1}</td>
               <td>{player.Name}</td>
               <td>{player.PlayerID}</td>
               <td>{player.Team}</td>
-
+              <td>
+                <button onClick={addPlayerString} value={player.PlayerID}>Add
+                </button>
+              </td>
             </tr>
-            <button onClick={addPlayerString} value={player.PlayerID}>Add
-            </button>
-            </>
           )
         })}
         </tbody>

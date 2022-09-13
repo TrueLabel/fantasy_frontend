@@ -6,7 +6,7 @@ import AddTeam from './components/AddTeam'
 
 const App = () => {
   let [teams, setTeams] = useState([])
-  let [newTeam, setNewTeam] = useState({name: '', players: ''})
+  //let [newTeam, setNewTeam] = useState({name: '', players: ''})
 
   const getTeams = () => {
     axios.get('http://localhost:8000/api/team')
@@ -15,19 +15,20 @@ const App = () => {
     })
   }
 
-  const handleChangeNewTeam = (event) => {
-    setNewTeam({ ...newTeam, [event.target.name]: event.target.value })
-  }
+  // const handleChangeNewTeam = (event) => {
+  //   setNewTeam({ ...newTeam, [event.target.name]: event.target.value })
+  // }
+  //
+  // const handleSubmitNewTeam = (event) => {
+  //   event.preventDefault()
+  //   handleCreateTeam(newTeam)
+  // }
 
-  const handleSubmitNewTeam = (event) => {
-    event.preventDefault()
-    handleCreateTeam(newTeam)
-  }
 
-
-  const handleCreateTeam = (newTeam) => {
-    axios.post('http://localhost:8000/api/team', newTeam)
+  const handleCreateTeam = (addedTeam) => {
+    axios.post('http://localhost:8000/api/team', addedTeam)
     .then((response) => {
+      console.log(response);
       getTeams()
     })
   }
@@ -47,21 +48,11 @@ const App = () => {
   return (
     <>
       <h1>Fantasy Football App</h1>
-
-      <form onSubmit={handleSubmitNewTeam}>
-        <label htmlFor="name">Name: </label>
-        <input type="text" name="name" onChange={handleChangeNewTeam}/>
-        <br />
-        <br />
-        <label htmlFor="players">Player IDs: </label>
-        <input type="text" name="players" onChange={handleChangeNewTeam}/>
-        <input type="submit" />
-      </form>
       <br />
       <h2>Teams: </h2>
       {teams.map((team) => {
         return (
-          <div>
+          <div key={team.id}>
             Name: {team.name}, Players: {team.players}
             <button onClick={handleDeleteTeam} value={team.id}>Delete Team</button>
 
