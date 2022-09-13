@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 import AddTeam from './components/AddTeam'
+import Teams from './components/Teams'
 
 const App = () => {
   let [teams, setTeams] = useState([])
@@ -49,18 +50,8 @@ const App = () => {
     <>
       <h1>Fantasy Football App</h1>
       <br />
-      <h2>Teams: </h2>
-      {teams.map((team) => {
-        return (
-          <div key={team.id}>
-            Name: {team.name}, Players: {team.players}
-            <button onClick={handleDeleteTeam} value={team.id}>Delete Team</button>
-
-          </div>
-        )
-      })}
+      <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
-
     </>
   )
 }
