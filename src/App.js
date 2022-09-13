@@ -6,6 +6,10 @@ import AddTeam from './components/AddTeam'
 import Teams from './components/Teams'
 
 
+const showAddTeam = () => {
+  document.getElementById('addteam').classList.toggle('showhide');
+}
+
 const App = () => {
   let [teams, setTeams] = useState([])
   //let [newTeam, setNewTeam] = useState({name: '', players: ''})
@@ -51,7 +55,9 @@ const App = () => {
     <>
       <h1>Fantasy Football App</h1>
       <br />
+      <button className='divbutton' id='topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
+      <button className='divbutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
     </>
   )
