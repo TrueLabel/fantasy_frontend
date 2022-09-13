@@ -22,7 +22,7 @@ const AddTeam = (props) => {
       <h4>Add Team Component</h4>
       {players.map((player) => {
         return (
-          <div className='grid container'>
+          <div className='grid'>
             {player.Name}, {player.Team}, {player.Position}, {player.ProjectedFantasyPoints}
             <br />
             <br />
