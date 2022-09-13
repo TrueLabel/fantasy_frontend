@@ -1,6 +1,7 @@
 
 
 const Teams = (props) => {
+
     return (
       <div>
         <h2>Teams: </h2>
@@ -18,3 +19,4 @@ const Teams = (props) => {
   }
   
   export default Teams
+
