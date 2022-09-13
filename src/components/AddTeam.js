@@ -43,6 +43,13 @@ const AddTeam = (props) => {
     event.preventDefault()
     props.handleCreateTeam(newTeam)
     setNewTeam({name: '', players: ''})
+    document.getElementById('addteam').classList.toggle('showhide');
+  }
+
+  const handleCancelNewTeam = (event) => {
+    event.preventDefault()
+    setNewTeam({name: '', players: ''})
+    document.getElementById('addteam').classList.toggle('showhide');
   }
 
   useEffect(() => {
@@ -50,11 +57,13 @@ const AddTeam = (props) => {
   }, [])
 
   return (
-    <>
+    <div className='showhide' id='addteam'>
+    
       <h4>Add Team Component</h4>
       Current players on team:
       {newTeam.players}
       <button onClick={handleSubmitNewTeam}>Submit Team</button>
+      <button onClick={handleCancelNewTeam}>Cancel</button>
       <table>
         <thead>
           <tr>
@@ -82,7 +91,7 @@ const AddTeam = (props) => {
         </tbody>
       </table>
 
-    </>
+    </div>
   )
 }
 
