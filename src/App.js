@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import AddTeam from './components/AddTeam'
 import Teams from './components/Teams'
-
+import Modal from './components/Modal'
 
 const showAddTeam = () => {
   document.getElementById('addteam').classList.toggle('showhide');
@@ -47,7 +47,11 @@ const App = () => {
     })
   }
 
-  
+  const openModal = () => {
+    document.getElementById('modal').style.display = 'block'
+  }
+
+
   useEffect(() => {
     getTeams()
   }, [])
@@ -56,10 +60,11 @@ const App = () => {
     <>
       <h1>Fantasy Football App</h1>
       <br />
-      <button className='divbutton' id='topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
+      <button className='divbutton topaddteambutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
-      <button className='divbutton' onClick={() => {showAddTeam()}}>Add Team</button>
+      <button className='divbutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
+      <Modal />
     </>
   )
 }
