@@ -12,7 +12,7 @@ const showAddTeam = () => {
 
 const App = () => {
   let [teams, setTeams] = useState([])
-  //let [newTeam, setNewTeam] = useState({name: '', players: ''})
+  let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: 1, draftPosition: 1})
 
   const getTeams = () => {
     axios.get('https://fierce-ocean-36761.herokuapp.com/api/team')
@@ -51,6 +51,11 @@ const App = () => {
     document.getElementById('modal').style.display = 'block'
   }
 
+  const handleSubmitModalForm = (teamData) => {
+    setNewTeamForm(teamData)
+    showAddTeam()
+  }
+
   useEffect(() => {
     getTeams()
   }, [])
@@ -62,8 +67,8 @@ const App = () => {
       <button className='divbutton topaddteambutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
       <button className='divbutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
-      <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
-      <Modal />
+      <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} newTeamForm={newTeamForm}/>
+      <Modal handleSubmitModalForm={handleSubmitModalForm}/>
     </>
   )
 }
