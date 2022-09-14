@@ -51,6 +51,7 @@ const App = () => {
     document.getElementById('modal').style.display = 'block'
   }
 
+
   useEffect(() => {
     getTeams()
   }, [])
@@ -69,3 +70,4 @@ const App = () => {
 }
 
 export default App;
+
