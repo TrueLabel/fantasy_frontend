@@ -21,33 +21,38 @@ const Modal = (props) => {
 
   return (
     <div id='modal'>
-      <form onSubmit={handleSubmitForm}>
-        <h1>New Team Modal</h1>
-        <label htmlFor="teamName">Team Name: </label>
-        <input type="text" name="teamName" onChange={handleChangeTeamForm}/>
-        <br />
-        <br />
-        <label htmlFor="numOfTeams">Number of Teams In League: </label>
-        <select name='numOfTeams' id='numOfTeams' onChange={handleChangeTeamForm}>
-          {numOfPlayerOptions.map((num) => {
-            return (
-              <option value={num}>{num}</option>
-            )
-          })}
-        </select>
-        <label htmlFor="draftPosition">Draft Position: </label>
-        <select name='draftPosition' id='draftPosition' onChange={handleChangeTeamForm}>
-          {numOfPlayerOptions.map((num) => {
-            return (
-              <option value={num}>{num}</option>
-            )
-          })}
-        </select>
-        <input type="submit"/>
+      <div id='modal-text' >
         <button onClick={() => {closeModal()}}>Close</button>
-      </form>
+        <h1>New Team Modal</h1>
+        <form onSubmit={handleSubmitForm}>
+          <label htmlFor="teamName">Team Name: </label>
+          <input type="text" name="teamName" onChange={handleChangeTeamForm}/>
+          <br />
+          <br />
+
+          <input type="submit"/>
+        </form>
+      </div>
     </div>
   )
 }
 
 export default Modal
+
+//REMOVED DROPDOWNS
+// <label htmlFor="numOfTeams">Number of Teams In League: </label>
+// <select name='numOfTeams' id='numOfTeams' onChange={handleChangeTeamForm}>
+//   {numOfPlayerOptions.map((num) => {
+//     return (
+//       <option value={num}>{num}</option>
+//     )
+//   })}
+// </select>
+// <label htmlFor="draftPosition">Draft Position: </label>
+// <select name='draftPosition' id='draftPosition' onChange={handleChangeTeamForm}>
+//   {numOfPlayerOptions.map((num) => {
+//     return (
+//       <option value={num}>{num}</option>
+//     )
+//   })}
+// </select>
