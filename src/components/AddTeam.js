@@ -16,8 +16,8 @@ const AddTeam = (props) => {
   let [round, setRound] = useState(1)
 
   //VARIABLES
-  const position = Number(props.newTeamForm.draftPosition)
-  console.log(position, 'position');
+  // const position = Number(props.newTeamForm.draftPosition)
+  // console.log(position, 'position');
   // let numOfTeams = Number(props.newTeamForm.numOfTeams)
   // //console.log(numOfTeams, 'numOfTeams');
   // let round = 1
@@ -28,7 +28,7 @@ const AddTeam = (props) => {
     axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
     .then((response) => {
       //setPlayersAPI(response.data.slice(3, 6))
-      setPlayersAPI(response.data.slice(start, start + 9))
+      setPlayersAPI(response.data.slice(start, start + 10))
     })
   }
 
