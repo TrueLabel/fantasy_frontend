@@ -100,9 +100,9 @@ const AddTeam = (props) => {
       <table>
         <thead>
           <tr>
-            <td></td>
             <td>Name</td>
-            <td>Projected Fantasy Points</td>
+            <td>Position</td>
+            <td>Points</td>
             <td>Team</td>
           </tr>
         </thead>
@@ -110,8 +110,8 @@ const AddTeam = (props) => {
         {playersAPI.map((player,index) => {
           return (
             <tr key={player.PlayerID}>
-              <td>{index + 1}</td>
               <td>{player.Name}</td>
+              <td>{player.Position}</td>
               <td>{player.ProjectedFantasyPoints}</td>
               <td>{player.Team}</td>
               <td>
