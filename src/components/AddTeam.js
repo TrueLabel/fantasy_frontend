@@ -36,6 +36,15 @@ const AddTeam = (props) => {
   //   setNewTeam({ ...newTeam, [event.target.name]: event.target.value })
   // }
 
+  const updateDraftPosition = () => {
+    // console.log(numOfTeams, 'num');
+    // console.log(draftPosition, 'position');
+    // let nextPosition = draftPosition + numOfTeams
+    // console.log(nextPosition, 'sum');
+    setDraftPosition(draftPosition += numOfTeams)
+    console.log(draftPosition, 'position after');
+  }
+
   const addPlayerString = (event) => {
     // console.log(event.target.value);
     // console.log(newTeam.players);
@@ -45,18 +54,9 @@ const AddTeam = (props) => {
         :
       setNewTeam({name: props.newTeamForm.teamName, players: event.target.value})
       //setPickedPlayersString(event.target.value)
-    //updateString()
-    //console.log(numOfTeams);
-    // round % 2 === 1 ?
-    //   setDraftPosition(draftPosition += numOfTeams)
-    //     :
-    //   setDraftPosition(draftPosition += numOfTeams)
-    console.log(numOfTeams, 'num');
-    console.log(draftPosition, 'position');
-    let nextPosition = draftPosition + numOfTeams
-    console.log(nextPosition, 'sum');
-    setDraftPosition(nextPosition)
-    console.log(draftPosition, 'position after');
+
+    updateDraftPosition()
+    //setDraftPosition(draftPosition += numOfTeams)
 
     // getPlayersAPI(draftPosition)
   }
