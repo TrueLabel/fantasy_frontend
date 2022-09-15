@@ -13,6 +13,7 @@ const Modal = (props) => {
   const handleSubmitForm = (event) => {
     event.preventDefault()
     props.handleSubmitModalForm(newTeamForm)
+    setNewTeamForm({teamName: '', numOfTeams: null, draftPosition: null})
   }
 
   const closeModal = () => {
