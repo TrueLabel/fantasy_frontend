@@ -10,14 +10,14 @@ const AddTeam = (props) => {
   let [newTeam, setNewTeam] = useState({name: '', players: ''})
   let [pickedPlayersString, setPickedPlayersString] = useState('')
   let [draftPosition, setDraftPosition] = useState(0)
-  //console.log(draftPosition, 'draft');
-  let [numOfTeams, setNumOfTeams] = useState(0)
+  //console.log({draftPosition}, 'draft')
+  let [numOfTeams, setNumOfTeams] = useState(12)
   //console.log(props.newTeamForm.teamName);
   let [round, setRound] = useState(1)
 
   //VARIABLES
-  // let position = Number(props.newTeamForm.draftPosition)
-  // console.log(position, 'position');
+  const position = Number(props.newTeamForm.draftPosition)
+  console.log(position, 'position');
   // let numOfTeams = Number(props.newTeamForm.numOfTeams)
   // //console.log(numOfTeams, 'numOfTeams');
   // let round = 1
@@ -36,14 +36,6 @@ const AddTeam = (props) => {
   //   setNewTeam({ ...newTeam, [event.target.name]: event.target.value })
   // }
 
-  const updateDraftPosition = () => {
-    // console.log(numOfTeams, 'num');
-    // console.log(draftPosition, 'position');
-    // let nextPosition = draftPosition + numOfTeams
-    // console.log(nextPosition, 'sum');
-    setDraftPosition(draftPosition += numOfTeams)
-    console.log(draftPosition, 'position after');
-  }
 
   const addPlayerString = (event) => {
     // console.log(event.target.value);
@@ -55,10 +47,13 @@ const AddTeam = (props) => {
       setNewTeam({name: props.newTeamForm.teamName, players: event.target.value})
       //setPickedPlayersString(event.target.value)
 
-    updateDraftPosition()
-    //setDraftPosition(draftPosition += numOfTeams)
-
-    // getPlayersAPI(draftPosition)
+    // console.log(numOfTeams, 'num');
+    // console.log(draftPosition, 'position');
+    // let nextPosition = draftPosition + numOfTeams
+    // console.log(nextPosition, 'sum');
+    setDraftPosition(draftPosition += numOfTeams)
+    //console.log(draftPosition, 'position after');
+    getPlayersAPI(draftPosition)
   }
 
   // const updateString = () => {
@@ -79,17 +74,18 @@ const AddTeam = (props) => {
     document.getElementById('addteam').classList.toggle('showhide');
   }
 
+
   // useEffect(() => {
-  //   setDraftPosition(Number(props.newTeamForm.draftPosition))
+  //   setDraftPosition(Number(props.newTeamForm.draftPosition) )
+  //   setNumOfTeams(Number(props.newTeamForm.numOfTeams))
+  //   return () => {
+  //     getPlayersAPI(draftPosition)
+  //   }
   // }, [])
 
   useEffect(() => {
-    setDraftPosition(Number(props.newTeamForm.draftPosition) - 1)
-    setNumOfTeams(Number(props.newTeamForm.numOfTeams))
-    return () => {
-      getPlayersAPI(draftPosition)
-    }
-  })
+    getPlayersAPI(draftPosition)
+  }, [])
 
   return (
     <div className='showhide' id='addteam'>

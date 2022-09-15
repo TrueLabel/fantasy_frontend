@@ -12,7 +12,7 @@ const showAddTeam = () => {
 
 const App = () => {
   let [teams, setTeams] = useState([])
-  let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: 1, draftPosition: 1})
+    let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: null, draftPosition: null})
 
   const getTeams = () => {
     axios.get('https://fierce-ocean-36761.herokuapp.com/api/team')

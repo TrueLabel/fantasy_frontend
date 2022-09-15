@@ -3,7 +3,7 @@ import {useState} from 'react'
 const Modal = (props) => {
   const arr20 = Array.from(Array(20), (_, index) => index + 1);
   let [numOfPlayerOptions, setNumOfPlayerOptions] = useState(arr20)
-  let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: 1, draftPosition: 1})
+  let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: null, draftPosition: null})
 
 
   const handleChangeTeamForm = (event) => {
