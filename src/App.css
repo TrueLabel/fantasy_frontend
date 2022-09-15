@@ -45,7 +45,7 @@
 	overflow: auto;
   display: none;
 }
-#modal > form {
+#modal-text {
   background-color: white;
 	height: 350px;
 	width: 550px;
