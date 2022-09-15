@@ -5,6 +5,7 @@ import axios from 'axios'
 import AddTeam from './components/AddTeam'
 import Teams from './components/Teams'
 import Modal from './components/Modal'
+import Header from './components/Header'
 
 const showAddTeam = () => {
   document.getElementById('addteam').classList.toggle('showhide');
@@ -62,7 +63,10 @@ const App = () => {
 
   return (
     <>
-      <h1>Fantasy Football App</h1>
+      <Header />
+      <br />
+      <br />
+      <br />
       <br />
       <button className='divbutton topaddteambutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
