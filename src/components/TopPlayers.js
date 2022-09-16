@@ -5,15 +5,11 @@ import axios from 'axios'
 const TopPlayers = (props) => {
     let [topPlayersAPI, setTopPlayersAPI] = useState([]);
     let [topPlayers, setTopPlayers] = useState([]);
-
-
-    
+  
 const getTopPlayersAPI = () => {
     axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/2021REG/7?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
     .then((response) => {
-
-        let sliceplayers = response.data.slice(0, 15);
-        setTopPlayers(response.data.sort((a, b) => Number(b.FantasyPointsDraftKings) - Number(a.FantasyPointsDraftKings))
+        let sliceplayers = setTopPlayers(response.data.sort((a, b) => Number(b.FantasyPointsDraftKings) - Number(a.FantasyPointsDraftKings))
         .slice(0, 15));
     })
   };
