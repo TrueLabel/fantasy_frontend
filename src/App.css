@@ -19,6 +19,17 @@
   border-radius: 5px;
 }
 
+#topPlayers {
+  position:fixed;
+  top: 0px;
+  right: 0px;
+  width: 30em;
+  height: 100%;
+  background-color: white;
+  overflow: scroll;
+  z-index: 6;
+}
+
 .header {
   display: flex;
   background-color:rgb(66, 216, 96);
