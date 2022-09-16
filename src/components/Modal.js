@@ -3,16 +3,17 @@ import {useState} from 'react'
 const Modal = (props) => {
   const arr20 = Array.from(Array(20), (_, index) => index + 1);
   let [numOfPlayerOptions, setNumOfPlayerOptions] = useState(arr20)
-  let [newModalForm, setNewModalForm] = useState()
-
-  // for (let i = 0; i < 20; i = i + 1) {
-  //   console.log(i);
-  //   //setNumOfPlayerOptions(...numOfPlayerOptions, i)
-  // }
-  // setNumOfPlayerOptions(1,2,3,4,5)
-  // console.log(numOfPlayerOptions);
+  let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: null, draftPosition: null})
 
 
+  const handleChangeTeamForm = (event) => {
+    setNewTeamForm({ ...newTeamForm, [event.target.name]: event.target.value })
+  }
+
+  const handleSubmitForm = (event) => {
+    event.preventDefault()
+    props.handleSubmitModalForm(newTeamForm)
+  }
 
   const closeModal = () => {
     document.getElementById('modal').style.display = 'none'
@@ -20,14 +21,14 @@ const Modal = (props) => {
 
   return (
     <div id='modal'>
-      <form>
+      <form onSubmit={handleSubmitForm}>
         <h1>New Team Modal</h1>
-        <label htmlFor="name">Team Name: </label>
-        <input type="text" name="name" />
+        <label htmlFor="teamName">Team Name: </label>
+        <input type="text" name="teamName" onChange={handleChangeTeamForm}/>
         <br />
         <br />
         <label htmlFor="numOfTeams">Number of Teams In League: </label>
-        <select name='numOfTeams' id='numOfTeams'>
+        <select name='numOfTeams' id='numOfTeams' onChange={handleChangeTeamForm}>
           {numOfPlayerOptions.map((num) => {
             return (
               <option value={num}>{num}</option>
@@ -35,7 +36,7 @@ const Modal = (props) => {
           })}
         </select>
         <label htmlFor="draftPosition">Draft Position: </label>
-        <select name='draftPosition' id='draftPosition'>
+        <select name='draftPosition' id='draftPosition' onChange={handleChangeTeamForm}>
           {numOfPlayerOptions.map((num) => {
             return (
               <option value={num}>{num}</option>
