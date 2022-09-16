@@ -7,7 +7,7 @@ const PlayerInfo = (props) => {
   const getPlayerInfo = (id) => {
     axios.get('https://api.sportsdata.io/v3/nfl/projections/json/PlayerSeasonProjectionStatsByPlayerID/2022REG/' + props.playerId + '?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
     .then((response) => {
-      console.log(response.data);
+      //console.log(response.data);
       setPlayerInfo(response.data)
     })
   }
@@ -17,7 +17,7 @@ const PlayerInfo = (props) => {
   }, [])
 
   return (
-    <tr>
+    <tr key={playerInfo.playerID}>
       <td>{playerInfo.Name}</td>
       <td>{playerInfo.Position}</td>
       <td>{playerInfo.Team}</td>

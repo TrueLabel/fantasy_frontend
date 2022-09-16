@@ -19,6 +19,17 @@
   border-radius: 5px;
 }
 
+#topPlayers {
+  position:fixed;
+  top: 0px;
+  right: 0px;
+  width: 30em;
+  height: 100%;
+  background-color: white;
+  overflow: scroll;
+  z-index: 6;
+}
+
 .header {
   display: flex;
   background-color:rgb(66, 216, 96);
@@ -43,9 +54,8 @@
 	width: 100%;
 	z-index: 1;
 	overflow: auto;
-  display: none;
 }
-#modal > form {
+#modal-text {
   background-color: white;
 	height: 350px;
 	width: 550px;
