@@ -9,6 +9,8 @@ const openModal = () => {
     document.getElementById('topPlayers').classList.toggle('showhide');
   }
 
+
+
 const Header = (props) => {
 
     return (
@@ -20,5 +22,5 @@ const Header = (props) => {
       </div>
     )
   }
-  
+
   export default Header

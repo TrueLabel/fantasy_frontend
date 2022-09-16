@@ -71,6 +71,10 @@ const App = () => {
   return (
     <>
       <Header />
+
+      <br />
+      <br />
+      <br />
       <br />
       <button className='divbutton topaddteambutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>

@@ -10,7 +10,7 @@ const AddTeam = (props) => {
   let [newTeam, setNewTeam] = useState({name: '', players: ''})
   let [pickedPlayersString, setPickedPlayersString] = useState('')
   let [draftPosition, setDraftPosition] = useState(0)
-  //console.log({draftPosition}, 'draft')
+  //console.log(typeof Number(props.newTeamForm.draftPosition), 'draft')
   let [numOfTeams, setNumOfTeams] = useState(12)
   //console.log(props.newTeamForm.teamName);
   let [round, setRound] = useState(1)
@@ -67,12 +67,14 @@ const AddTeam = (props) => {
     props.handleCreateTeam(newTeam)
     setNewTeam({name: '', players: ''})
     document.getElementById('addteam').classList.toggle('showhide');
+    document.getElementById('modal').style.display = 'none'
   }
 
   const handleCancelNewTeam = (event) => {
     event.preventDefault()
     setNewTeam({name: '', players: ''})
     document.getElementById('addteam').classList.toggle('showhide');
+    document.getElementById('modal').style.display = 'none'
   }
 
 
