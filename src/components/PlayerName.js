@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const PlayerName = (props) => {
-  let [playerInfo, setPlayerInfo] = useState({})
+  let [playerInfo, setPlayerInfo] = useState({Name: 'Name', Position: 'Position', Team: 'Team'})
   // Name: 'Name', Position: 'Position', Team: 'Team'
 
   const getPlayerInfo = () => {
