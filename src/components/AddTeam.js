@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 import Modal from '../components/Modal'
+import PlayerName from '../components/PlayerName'
 
 const AddTeam = (props) => {
   //STATES
@@ -114,7 +115,13 @@ const AddTeam = (props) => {
       <Modal  handleCancelNewTeam={handleCancelNewTeam} handleSubmitModal={handleSubmitModal}/>
       <h4>Add Team Component</h4>
       {newTeam.name}
-      {newTeam.players}
+      {newTeam.players.split(',').map((playerId) => {
+        return(
+          <ul>
+            <PlayerName playerId={playerId} />
+          </ul>
+        )
+      })}
       <button onClick={handleSubmitNewTeam}>Submit Team</button>
       <button onClick={handleCancelNewTeam}>Cancel</button>
       <table>
