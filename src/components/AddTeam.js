@@ -2,7 +2,7 @@ import '../App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-
+import Modal from '../components/Modal'
 
 const AddTeam = (props) => {
   //STATES
@@ -11,9 +11,10 @@ const AddTeam = (props) => {
   let [pickedPlayersString, setPickedPlayersString] = useState('')
   let [draftPosition, setDraftPosition] = useState(0)
   //console.log(typeof Number(props.newTeamForm.draftPosition), 'draft')
+  //console.log(draftPosition);
   let [numOfTeams, setNumOfTeams] = useState(12)
   //console.log(props.newTeamForm.teamName);
-  let [round, setRound] = useState(1)
+  //let [round, setRound] = useState(1)
 
   //VARIABLES
   // const position = Number(props.newTeamForm.draftPosition)
@@ -41,10 +42,10 @@ const AddTeam = (props) => {
     // console.log(event.target.value);
     // console.log(newTeam.players);
     newTeam.players.length > 1 ?
-      setNewTeam({name: props.newTeamForm.teamName, players: newTeam.players + ',' + event.target.value})
+      setNewTeam({name: newTeam.name, players: newTeam.players + ',' + event.target.value})
       //setPickedPlayersString(pickedPlayersString + ', ' + event.target.value)
         :
-      setNewTeam({name: props.newTeamForm.teamName, players: event.target.value})
+      setNewTeam({name: newTeam.name, players: event.target.value})
       //setPickedPlayersString(event.target.value)
 
     // console.log(numOfTeams, 'num');
@@ -61,18 +62,36 @@ const AddTeam = (props) => {
   //   console.log(newTeam);
   // }
 
+
+// TODO:
   const handleSubmitNewTeam = (event) => {
     event.preventDefault()
     props.handleCreateTeam(newTeam)
+    setDraftPosition(0)
+    getPlayersAPI(0)
+    setNewTeam({name: '', players: ''})
+    document.getElementById('addteam').classList.toggle('showhide');
+  }
+
+  // TODO:
+  const handleCancelNewTeam = (event) => {
+    event.preventDefault()
+    setDraftPosition(0)
+    getPlayersAPI(0)
     setNewTeam({name: '', players: ''})
     document.getElementById('addteam').classList.toggle('showhide');
     document.getElementById('modal').style.display = 'none'
   }
 
-  const handleCancelNewTeam = (event) => {
-    event.preventDefault()
-    setNewTeam({name: '', players: ''})
-    document.getElementById('addteam').classList.toggle('showhide');
+  // const closeModal = () => {
+  //   document.getElementById('modal').style.display = 'none'
+  //   document.getElementById('addteam').classList.toggle('showhide');
+  // }
+  // PASS IT IN closeModal={closeModal}
+
+  const handleSubmitModal = (teamData) => {
+    console.log(teamData);
+    setNewTeam(teamData)
     document.getElementById('modal').style.display = 'none'
   }
 
@@ -87,13 +106,14 @@ const AddTeam = (props) => {
 
   useEffect(() => {
     getPlayersAPI(draftPosition)
+    //console.log(draftPosition);
   }, [])
 
   return (
     <div className='showhide' id='addteam'>
-
+      <Modal  handleCancelNewTeam={handleCancelNewTeam} handleSubmitModal={handleSubmitModal}/>
       <h4>Add Team Component</h4>
-      Current players on team:
+      {newTeam.name}
       {newTeam.players}
       <button onClick={handleSubmitNewTeam}>Submit Team</button>
       <button onClick={handleCancelNewTeam}>Cancel</button>

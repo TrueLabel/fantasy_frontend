@@ -43,7 +43,6 @@
 	width: 100%;
 	z-index: 1;
 	overflow: auto;
-  display: none;
 }
 #modal-text {
   background-color: white;

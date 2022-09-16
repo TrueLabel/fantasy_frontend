@@ -4,16 +4,15 @@ import axios from 'axios'
 
 import AddTeam from './components/AddTeam'
 import Teams from './components/Teams'
-import Modal from './components/Modal'
-import Header from './components/Header'
+
 
 const showAddTeam = () => {
   document.getElementById('addteam').classList.toggle('showhide');
+  document.getElementById('modal').style.display = 'block'
 }
 
 const App = () => {
   let [teams, setTeams] = useState([])
-  let [newTeamForm, setNewTeamForm] = useState({teamName: '', numOfTeams: null, draftPosition: null})
 
   const getTeams = () => {
     axios.get('https://fierce-ocean-36761.herokuapp.com/api/team')
@@ -48,31 +47,18 @@ const App = () => {
     })
   }
 
-  const openModal = () => {
-    document.getElementById('modal').style.display = 'block'
-  }
-
-  const handleSubmitModalForm = (teamData) => {
-    setNewTeamForm(teamData)
-    showAddTeam()
-  }
-
   useEffect(() => {
     getTeams()
   }, [])
 
   return (
     <>
-      <Header />
+      <h1>Fantasy Football App</h1>
       <br />
-      <br />
-      <br />
-      <br />
-      <button className='divbutton topaddteambutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
+      <button className='divbutton topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
-      <button className='divbutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
-      <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} newTeamForm={newTeamForm}/>
-      <Modal handleSubmitModalForm={handleSubmitModalForm}/>
+      <button className='divbutton' onClick={() => {showAddTeam()}}>Add Team</button>
+      <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} />
     </>
   )
 }
