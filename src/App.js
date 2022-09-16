@@ -83,6 +83,7 @@ const App = () => {
       <br />
       <br />
       <br />
+      <br />
       <button className='divbutton topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
 
