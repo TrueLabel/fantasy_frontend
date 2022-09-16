@@ -17,7 +17,7 @@ const PlayerInfo = (props) => {
   }, [])
 
   return (
-    <tr>
+    <tr key={playerInfo.playerID}>
       <td>{playerInfo.Name}</td>
       <td>{playerInfo.Position}</td>
       <td>{playerInfo.Team}</td>

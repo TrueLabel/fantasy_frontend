@@ -16,6 +16,9 @@ const AddTeam = (props) => {
   let [numOfTeams, setNumOfTeams] = useState(12)
   //console.log(props.newTeamForm.teamName);
   //let [round, setRound] = useState(1)
+  // let [playerInfo, setPlayerInfo] = useState()
+
+
 
   //VARIABLES
   // const position = Number(props.newTeamForm.draftPosition)
@@ -56,6 +59,8 @@ const AddTeam = (props) => {
     setDraftPosition(draftPosition += numOfTeams)
     //console.log(draftPosition, 'position after');
     getPlayersAPI(draftPosition)
+    // console.log(event.target.value);
+    // getPlayerInfo(event.target.value)
   }
 
   // const updateString = () => {
@@ -96,6 +101,13 @@ const AddTeam = (props) => {
     document.getElementById('modal').style.display = 'none'
   }
 
+  // const getPlayerInfo = (playerIdNumber) => {
+  //   axios.get('https://api.sportsdata.io/v3/nfl/projections/json/PlayerSeasonProjectionStatsByPlayerID/2022REG/' + playerIdNumber + '?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+  //   .then((response) => {
+  //     //console.log(response.data);
+  //     setPlayerInfo(response.data)
+  //   })
+  // }
 
   // useEffect(() => {
   //   setDraftPosition(Number(props.newTeamForm.draftPosition) )

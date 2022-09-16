@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import AddTeam from './components/AddTeam'
 import Teams from './components/Teams'
+import Header from './components/Header'
 
 
 const showAddTeam = () => {
@@ -53,6 +54,7 @@ const App = () => {
 
   return (
     <>
+      <Header />
       <h1>Fantasy Football App</h1>
       <br />
       <button className='divbutton topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
