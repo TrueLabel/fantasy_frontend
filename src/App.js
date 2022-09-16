@@ -51,7 +51,7 @@ const App = () => {
   useEffect(() => {
     getTeams()
   }, [])
-  //test
+  //testing
 
   return (
     <>
