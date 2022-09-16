@@ -5,6 +5,8 @@ import axios from 'axios'
 const TopPlayers = (props) => {
     let [topPlayersAPI, setTopPlayersAPI] = useState([]);
     let [topPlayers, setTopPlayers] = useState([]);
+    let [year, setYear] = useState(2022);
+    let [week, setWeek] = useState(1);
   
 const getTopPlayersAPI = () => {
     axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/2021REG/7?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
