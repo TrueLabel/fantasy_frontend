@@ -18,19 +18,18 @@ const PlayerInfo = (props) => {
       .then((response) => {
         setDefenseInfo(response.data)
         defenseInfo.forEach((team) => {
-          console.log(team.PlayerID, props.playerId, 'defensee')
+          console.log(team.PlayerID, props.playerId, 'defense')
           if (team.PlayerID === Number(props.playerId)) {
             setPlayerInfo(team)
           }
-        });
-
+        })
       })
-
   }
+  getPlayerInfo()
 
-  useEffect(() => {
-    getPlayerInfo()
-  }, [])
+  // useEffect(() => {
+  //   getPlayerInfo()
+  // }, [])
 
   return (
     <div>
