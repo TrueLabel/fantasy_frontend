@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const PlayerInfo = (props) => {
   let [playerInfo, setPlayerInfo] = useState([])
-  let [defenseInfo, setDefenseInfo] =useState([])
+  let [defenseInfo, setDefenseInfo] = useState([])
 
   const getPlayerInfo = () => {
     //console.log(props.playerId.length, 'key');
@@ -25,34 +25,47 @@ const PlayerInfo = (props) => {
         })
       })
   }
-  getPlayerInfo()
+  //getPlayerInfo()
 
-  // useEffect(() => {
-  //   getPlayerInfo()
-  // }, [])
+  useEffect(() => {
+    getPlayerInfo()
+  })
 
   return (
-    <div>
+    <tr key={playerInfo.playerID}>
       {props.playerId.length > 4 ?
-        <tr key={playerInfo.playerID}>
-          <td>{playerInfo.Name}</td>
-          <td>{playerInfo.Position}</td>
-          <td>{playerInfo.Team}</td>
-          <td>{playerInfo.FantasyPoints}</td>
-        </tr>
-          :
-        <tr key={playerInfo.playerID}>
-          <td>{playerInfo.Team}</td>
-          <td>Defense</td>
-          <td>{playerInfo.Team}</td>
-          <td>{playerInfo.FantasyPoints}</td>
-        </tr>
+        <td>{playerInfo.Name}</td>
+        :
+        <td>{playerInfo.Team}</td>
       }
-    </div>
-
-
-
+      {props.playerId.length > 4 ?
+        <td>{playerInfo.Position}</td>
+        :
+        <td>Defense</td>
+      }
+      <td>{playerInfo.Team}</td>
+      <td>{playerInfo.FantasyPoints}</td>
+    </tr>
   )
 }
 
 export default PlayerInfo
+
+
+// <div>
+//   {props.playerId.length > 4 ?
+//     <tr key={playerInfo.playerID}>
+//       <td>{playerInfo.Name}</td>
+//       <td>{playerInfo.Position}</td>
+//       <td>{playerInfo.Team}</td>
+//       <td>{playerInfo.FantasyPoints}</td>
+//     </tr>
+//       :
+//     <tr key={playerInfo.playerID}>
+//       <td>{playerInfo.Team}</td>
+//       <td>Defense</td>
+//       <td>{playerInfo.Team}</td>
+//       <td>{playerInfo.FantasyPoints}</td>
+//     </tr>
+//   }
+// </div>
