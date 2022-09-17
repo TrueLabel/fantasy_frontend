@@ -51,10 +51,34 @@ const getTopPlayersAPI = (year, week) => {
       <form>
       <button onClick={handleTopPlayers}>Hide</button>
       <button onClick={handleSubmitTop}>Submit</button>
-      <label htmlFor="year">Year: </label>
-        <input type="text" name="year" onChange={handleChangeYear} />
+      <label htmlFor="year">Season: </label>
+        <select value={year} onChange={e=>setYear(e.target.value)}>
+            <option>2021</option>
+            <option>2022</option>
+        </select>
+        {/* <input type="text" name="year" onChange={handleChangeYear} /> */}
         <label htmlFor="week">Week: </label>
-        <input type="text" name="week" onChange={handleChangeWeek}/>
+        <select value={week} onChange={e=>setWeek(e.target.value)}>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            
+        </select>
+        {/* <input type="text" name="week" onChange={handleChangeWeek}/> */}
         </form>
       <table>
         <thead>
