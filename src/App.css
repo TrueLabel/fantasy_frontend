@@ -1,14 +1,5 @@
 .showhide {
-  display:none;
-}
-
-#addteam {
-  width: 100%;
-  z-index: 5;
-  background-color: rgb(251, 251, 251);
-  height: 100%;
-  position: fixed;
-  top: 0;
+  display: none;
 }
 
 .topaddteambutton {
@@ -74,5 +65,69 @@
 
 .grid{
 text-align: center;
+}
 
+
+/* ADD TEAM COMPONENT */
+#addteam {
+  width: 100%;
+  z-index: 5;
+  background-color: rgb(251, 251, 251);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  overflow-y: auto;
+}
+.add-title {
+  font-family: 'Alfa Slab One', cursive;
+}
+#addteam > ol {
+  margin: 0 auto;
+  width: 60%;
+  text-align: left;
+}
+.new-drafted-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  width: 50%;
+}
+.new-drafted-item {
+  padding: 0.3em;
+  margin: .3em;
+  border: 2px solid black;
+  border-radius: 5px
+}
+.addteam-button-container {
+  display: flex;
+  justify-content: space-around;
+}
+.addteam-button-container > button {
+  margin: 1em;
+  padding: .2em .4em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+.addteam-confirm {
+  cursor: pointer;
+  border: 2px solid #2cb007;
+  background-color: #2cb007;
+}
+.addteam-cancel {
+  cursor: pointer;
+  border: 2px solid #fa0a0a;
+  background-color: #fa0a0a;
+}
+.addteam-table {
+  margin: .3em auto;
+  width: 75%
+}
+.addteam-table > thead {
+  font-weight: bold;
+}
+.add-player-btn {
+  cursor: pointer;
 }
