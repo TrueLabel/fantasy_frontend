@@ -79,7 +79,7 @@ const App = () => {
       <button className='divbutton topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
 
-      <button className='divbutton' onClick={() => {showAddTeam()}}>Add Team</button>
+      <button className='divbutton bottomaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} />
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
       </div>

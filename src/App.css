@@ -52,10 +52,7 @@ button:focus {
   clear: both;
 }
 
-#teamInfo {
-  float: left;
-  width: 60%;
-}
+
 
 .header {
   position: fixed;
@@ -69,7 +66,7 @@ button:focus {
   display: flex;
   flex-direction: row;
   letter-spacing: 2px;
-  
+
 }
 
 #spacer {
@@ -85,6 +82,47 @@ button:focus {
 
 .grid{
 text-align: center;
+}
+
+
+
+/* TEAMS COMPONENT */
+#teamInfo {
+  float: left;
+  width: 60%;
+  text-align: center;
+  margin: 1em 0;
+}
+.teams-teamname {
+  margin: .5em 0;
+}
+.teams-table {
+  margin: 0 auto;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 1em;
+}
+.teams-rowhead > td {
+  padding: 0 .3em ;
+}
+.teams-tablerow {
+  border: 2px solid black;
+  border-radius: 100%;
+}
+.team-delete-btn {
+  background-color: #edf2fa;
+  margin-top: .5em;
+  margin-bottom: 1em;
+}
+.bottomaddteambutton {
+  cursor: pointer;
+  margin: 1em;
+  padding: .2em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid #3474e3;
+  background-color: #3474e3;
 }
 
 
