@@ -7,19 +7,19 @@ const Teams = (props) => {
 
 
   return (
-    <div>
-      <h2>Teams: </h2>
+    <div id='teams-container'>
+      <h2>Teams </h2>
       {props.teams.map((team) => {
         return (
           <div key={team.id}>
-            <div>Team Name: {team.name} </div>
-            <table>
+            <h4 className='teams-teamname'>{team.name}</h4>
+            <table className='teams-table'>
               <thead>
-                <tr>
+                <tr className='teams-rowhead'>
                   <td>Name</td>
-                  <td>Position</td>
-                  <td>Team</td>
-                  <td>Points</td>
+                  <td>Position </td>
+                  <td>Team </td>
+                  <td>Points </td>
                 </tr>
               </thead>
               <tbody>
@@ -33,7 +33,7 @@ const Teams = (props) => {
             </table>
 
 
-            <button onClick={props.handleDeleteTeam} value={team.id}>Delete Team</button>
+            <button className='team-delete-btn' onClick={props.handleDeleteTeam} value={team.id}>Delete Team</button>
           </div>
         )
       })}
