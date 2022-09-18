@@ -73,6 +73,7 @@ const App = () => {
   return (
     <>
     <div><Header /></div>
+    <main>
     <div id='spacer'></div>
     <div id= 'teamInfo'>
       <button className='divbutton topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
@@ -84,7 +85,7 @@ const App = () => {
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
       </div>
       <div id='topplayers'> <TopPlayers /></div>
-
+</main>
       <div><Footer/></div>
     </>
   )
