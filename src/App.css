@@ -43,25 +43,6 @@
   margin: 15px;
 }
 
-#modal {
-	background-color: rgba(0,0,0,0.4);
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-	overflow: auto;
-}
-#modal-text {
-  background-color: white;
-	height: 350px;
-	width: 550px;
-	border-radius: 2px;
-  margin: 150px auto;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
 
 .grid{
 text-align: center;
@@ -145,4 +126,52 @@ text-align: center;
   padding: 1em;
   border: 2px solid #3474e3;
   border-radius: 5px;
+}
+
+/* MODAL */
+#modal {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
+#modal-text {
+  background-color: white;
+	height: 45%;
+	width: 75%;
+	border-radius: 5px;
+  margin: 150px auto;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  border: 2px solid black;
+}
+#modal-text > i {
+  cursor: pointer;
+  float: right;
+}
+#modal-text > h1 {
+  padding: .5em;
+}
+.submit-modal {
+  cursor: pointer;
+  margin: 1em 2em;
+  padding: .2em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid #3474e3;
+  background-color: #3474e3;
+}
+.cancel-modal {
+  cursor: pointer;
+  margin: 1em 2em;
+  padding: .2em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid #fa0a0a;
+  background-color: #fa0a0a;
 }
