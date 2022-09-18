@@ -144,10 +144,10 @@ const AddTeam = (props) => {
       <table className='addteam-table'>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Position</td>
-            <td>Points</td>
-            <td>Team</td>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Points</th>
+            <th>Team</th>
           </tr>
         </thead>
         <tbody>
@@ -166,6 +166,7 @@ const AddTeam = (props) => {
           )
         })}
         </tbody>
+       
       </table>
 
     </div>
