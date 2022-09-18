@@ -6,6 +6,11 @@ import PlayerInfo from '../components/PlayerInfo'
 const Teams = (props) => {
 
 
+
+
+
+   
+
   return (
     <div>
     

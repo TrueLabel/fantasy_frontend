@@ -2,7 +2,8 @@ import '../App.scss';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-
+import Modal from '../components/Modal'
+import PlayerName from '../components/PlayerName'
 
 const AddTeam = (props) => {
   //STATES
@@ -12,12 +13,11 @@ const AddTeam = (props) => {
   let [pickedPlayersString, setPickedPlayersString] = useState('')
   let [draftPosition, setDraftPosition] = useState(0)
   //console.log(typeof Number(props.newTeamForm.draftPosition), 'draft')
+  //console.log(draftPosition);
   let [numOfTeams, setNumOfTeams] = useState(12)
   //console.log(props.newTeamForm.teamName);
-  let [round, setRound] = useState(1)
-let [playersAPITicker,setPlayersAPITicker] = useState([])
-
-
+  //let [round, setRound] = useState(1)
+  // let [playerInfo, setPlayerInfo] = useState()
 
 
 
@@ -30,12 +30,12 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
 
   //FUNCTIONS
   const getPlayersAPI = (start) => {
-    //console.log(start, typeof start, 'start');
-    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+    console.log(start, typeof start, 'start');
+    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=458e4d8b7fd847348de5b8891eedc940')
     .then((response) => {
+
       //setPlayersAPI(response.data.slice(3, 6))
       setPlayersAPI(response.data.slice(start, start + 10))
-      setPlayersAPITicker(response.data.slice(start, start + 50))
     })
   }
 
@@ -48,12 +48,11 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
     // console.log(event.target.value);
     // console.log(newTeam.players);
     newTeam.players.length > 1 ?
-      setNewTeam({name: props.newTeamForm.teamName, players: newTeam.players + ',' + event.target.value})
+      setNewTeam({name: newTeam.name, players: newTeam.players + ',' + event.target.value})
       //setPickedPlayersString(pickedPlayersString + ', ' + event.target.value)
         :
-      setNewTeam({name: props.newTeamForm.teamName, players: event.target.value})
+      setNewTeam({name: newTeam.name, players: event.target.value})
       //setPickedPlayersString(event.target.value)
-
     // console.log(numOfTeams, 'num');
     // console.log(draftPosition, 'position');
     // let nextPosition = draftPosition + numOfTeams
@@ -61,7 +60,8 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
     setDraftPosition(draftPosition += numOfTeams)
     //console.log(draftPosition, 'position after');
     getPlayersAPI(draftPosition)
-    
+    // console.log(event.target.value);
+    // getPlayerInfo(event.target.value)
   }
 
   // const updateString = () => {
@@ -69,23 +69,46 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
   //   console.log(newTeam);
   // }
 
+
+// TODO:
   const handleSubmitNewTeam = (event) => {
     event.preventDefault()
     props.handleCreateTeam(newTeam)
+    setDraftPosition(0)
+    getPlayersAPI(0)
     setNewTeam({name: '', players: ''})
     document.getElementById('addteam').classList.toggle('showhide');
-    document.getElementById('modal').style.display = 'none'
   }
 
+  // TODO:
   const handleCancelNewTeam = (event) => {
     event.preventDefault()
+    setDraftPosition(0)
+    getPlayersAPI(0)
     setNewTeam({name: '', players: ''})
     document.getElementById('addteam').classList.toggle('showhide');
     document.getElementById('modal').style.display = 'none'
   }
 
-  
-   
+  // const closeModal = () => {
+  //   document.getElementById('modal').style.display = 'none'
+  //   document.getElementById('addteam').classList.toggle('showhide');
+  // }
+  // PASS IT IN closeModal={closeModal}
+
+  const handleSubmitModal = (teamData) => {
+    console.log(teamData);
+    setNewTeam(teamData)
+    document.getElementById('modal').style.display = 'none'
+  }
+
+  // const getPlayerInfo = (playerIdNumber) => {
+  //   axios.get('https://api.sportsdata.io/v3/nfl/projections/json/PlayerSeasonProjectionStatsByPlayerID/2022REG/' + playerIdNumber + '?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+  //   .then((response) => {
+  //     //console.log(response.data);
+  //     setPlayerInfo(response.data)
+  //   })
+  // }
 
   // useEffect(() => {
   //   setDraftPosition(Number(props.newTeamForm.draftPosition) )
@@ -97,18 +120,29 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
 
   useEffect(() => {
     getPlayersAPI(draftPosition)
+    //console.log(draftPosition);
   }, [])
 
   return (
   
     <div className='showhide' id='addteam'>
-
-      <h4>Add Team Component</h4>
-      Current players on team:
-      {newTeam.players}
-      <button className='Glass' onClick={handleSubmitNewTeam}>Submit Team</button>
-      <button onClick={handleCancelNewTeam}>Cancel</button>
-      <table>
+      <Modal  handleCancelNewTeam={handleCancelNewTeam} handleSubmitModal={handleSubmitModal}/>
+      <h1 className='add-title'>{newTeam.name}</h1>
+      <h2>Pick Your Players!</h2>
+      <div className='new-drafted-container'>
+        {newTeam.players.split(',').map((playerId) => {
+          return(
+            <div className='new-drafted-item'>
+              <PlayerName playerId={playerId} />
+            </div>
+          )
+        })}
+      </div>
+      <div className='addteam-button-container'>
+        <button className='addteam-confirm' onClick={handleSubmitNewTeam}>Submit Team</button>
+        <button className='addteam-cancel' onClick={handleCancelNewTeam}>Cancel Draft</button>
+      </div>
+      <table className='addteam-table'>
         <thead>
           <tr>
             <td>Name</td>
@@ -126,7 +160,7 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
               <td>{player.ProjectedFantasyPoints}</td>
               <td>{player.Team}</td>
               <td>
-                <button onClick={addPlayerString} value={player.PlayerID}>Add
+                <button className='add-player-btn' onClick={addPlayerString} value={player.PlayerID}>Add
                 </button>
               </td>
             </tr>
@@ -137,19 +171,7 @@ let [playersAPITicker,setPlayersAPITicker] = useState([])
         
         </tbody>
       </table>
-      <div class="ticker-wrap">
-      <div class="ticker">
-{playersAPITicker.map((playerAPI,index) =>{
 
-return(
-  
-  <div className="ticker__item" key={index}>{playerAPI.Name} ({playerAPI.Team})   ({playerAPI.ProjectedFantasyPoints})</div>
-  
-)
-
-})}
-</div>
-</div>
 
 
     </div>
