@@ -8,9 +8,12 @@ const Teams = (props) => {
 
   return (
     <div>
+    
       <h2>Teams: </h2>
       {props.teams.map((team) => {
         return (
+        
+
           <div key={team.id}>
             <div>Team Name: {team.name} </div>
             <table>
@@ -35,6 +38,7 @@ const Teams = (props) => {
 
             <button onClick={props.handleDeleteTeam} value={team.id}>Delete Team</button>
           </div>
+          
         )
       })}
     </div>

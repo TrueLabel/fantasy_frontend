@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
@@ -68,6 +68,7 @@ const App = () => {
       <br />
       <br />
       <br />
+    
       <button className='divbutton topaddteambutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
       <button className='divbutton' id='open-modal' onClick={() => {openModal()}}>Add Team</button>

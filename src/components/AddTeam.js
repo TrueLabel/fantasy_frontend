@@ -1,4 +1,4 @@
-import '../App.css';
+import '../App.scss';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
@@ -6,6 +6,7 @@ import axios from 'axios'
 
 const AddTeam = (props) => {
   //STATES
+  
   let [playersAPI, setPlayersAPI] = useState([])
   let [newTeam, setNewTeam] = useState({name: '', players: ''})
   let [pickedPlayersString, setPickedPlayersString] = useState('')
@@ -14,6 +15,11 @@ const AddTeam = (props) => {
   let [numOfTeams, setNumOfTeams] = useState(12)
   //console.log(props.newTeamForm.teamName);
   let [round, setRound] = useState(1)
+let [playersAPITicker,setPlayersAPITicker] = useState([])
+
+
+
+
 
   //VARIABLES
   // const position = Number(props.newTeamForm.draftPosition)
@@ -29,6 +35,7 @@ const AddTeam = (props) => {
     .then((response) => {
       //setPlayersAPI(response.data.slice(3, 6))
       setPlayersAPI(response.data.slice(start, start + 10))
+      setPlayersAPITicker(response.data.slice(start, start + 50))
     })
   }
 
@@ -54,6 +61,7 @@ const AddTeam = (props) => {
     setDraftPosition(draftPosition += numOfTeams)
     //console.log(draftPosition, 'position after');
     getPlayersAPI(draftPosition)
+    
   }
 
   // const updateString = () => {
@@ -76,6 +84,8 @@ const AddTeam = (props) => {
     document.getElementById('modal').style.display = 'none'
   }
 
+  
+   
 
   // useEffect(() => {
   //   setDraftPosition(Number(props.newTeamForm.draftPosition) )
@@ -90,12 +100,13 @@ const AddTeam = (props) => {
   }, [])
 
   return (
+  
     <div className='showhide' id='addteam'>
 
       <h4>Add Team Component</h4>
       Current players on team:
       {newTeam.players}
-      <button onClick={handleSubmitNewTeam}>Submit Team</button>
+      <button className='Glass' onClick={handleSubmitNewTeam}>Submit Team</button>
       <button onClick={handleCancelNewTeam}>Cancel</button>
       <table>
         <thead>
@@ -109,7 +120,7 @@ const AddTeam = (props) => {
         <tbody>
         {playersAPI.map((player,index) => {
           return (
-            <tr key={player.PlayerID}>
+              <tr key={player.PlayerID}>
               <td>{player.Name}</td>
               <td>{player.Position}</td>
               <td>{player.ProjectedFantasyPoints}</td>
@@ -119,12 +130,30 @@ const AddTeam = (props) => {
                 </button>
               </td>
             </tr>
+                
           )
+          
         })}
+        
         </tbody>
       </table>
+      <div class="ticker-wrap">
+      <div class="ticker">
+{playersAPITicker.map((playerAPI,index) =>{
+
+return(
+  
+  <div className="ticker__item" key={index}>{playerAPI.Name} ({playerAPI.Team})   ({playerAPI.ProjectedFantasyPoints})</div>
+  
+)
+
+})}
+</div>
+</div>
+
 
     </div>
+    
   )
 }
 

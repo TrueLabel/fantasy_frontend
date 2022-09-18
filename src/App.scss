@@ -1,0 +1,181 @@
+/* graident on body */
+
+body{
+
+background-color: #ffffff;
+	background-image: linear-gradient(100deg, #c0c0c0 -3%, #dad8d8 80%);
+}
+
+
+.showhide {
+  display:none;
+}
+
+#addteam {
+  width: 100%;
+  z-index: 5;
+  background-color: #ffffff;
+  background-image: linear-gradient(100deg, #e7e7e7 -3%, #f1eded 80%);
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.topaddteambutton {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  background-color:rgb(66, 216, 96);
+  font-family: 'Alfa Slab One', cursive;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.537);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.footballicon {
+  height: 35px;
+  margin: 15px;
+}
+
+#modal {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+  display: none;
+}
+#modal-text {
+  background-color: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+  margin: 150px auto;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.grid{
+text-align: center;
+
+}
+
+
+
+// buttons
+
+button {
+	width: 150px;
+	height: 25px;
+	cursor: pointer;
+	border: none;
+	color: rgba(0, 0, 0, 0.856);
+	font-size: 15px;
+	border-radius: 4px;
+  font-weight: bolder;
+	box-shadow: inset 0px 3px 5px rgba(82, 82, 82, 0.5), 0px 0px 10px rgba(0,0,0,0.15);
+	background: rgb(2,0,36);
+background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255, 255, 255, 0.5) 6%, rgba(255,255,255,0) 9%, rgba(255, 255, 255, 0.5) 10%, rgba(255, 255, 255, 0) 17%, rgba(255,255,255,.5) 19%, rgba(255, 255, 255, 0) 21%);
+	background-size: 150%;
+	background-position: right;
+	transition: 1s;
+}
+
+button:hover {
+	background-position: left;
+	color: white;
+	box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+}
+
+button:focus {
+	outline: none;
+}
+
+// TICKER FOR DRAFT CODE PEN
+
+
+* { box-sizing: border-box; }
+$duration: 250s;
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 4rem;
+  background-color: rgba(rgb(0, 0, 0), 0.9); 
+  padding-left: 100%;
+  box-sizing: content-box;
+
+  .ticker {
+
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    -webkit-animation-iteration-count: infinite; 
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+   -webkit-animation-name: ticker;
+           animation-name: ticker;
+    -webkit-animation-duration: $duration;
+            animation-duration: $duration;
+
+    &__item {
+
+      display: inline-block;
+
+      padding: 0 2rem;
+      font-size: 2rem;
+      color: rgb(255, 255, 255);   
+
+    }
+
+  }
+
+}
+
+
+
+body { padding-bottom: 5rem; }
