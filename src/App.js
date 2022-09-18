@@ -7,7 +7,7 @@ import AddTeam from './components/AddTeam'
 import Teams from './components/Teams'
 import Header from './components/Header'
 import TopPlayers from './components/TopPlayers'
-
+import Footer from './components/Footer'
 
 
 
@@ -84,6 +84,7 @@ const App = () => {
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
       </div>
       <div id='topplayers'> <TopPlayers /></div>
+      <Footer />
     </>
   )
 }
