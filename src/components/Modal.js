@@ -19,8 +19,7 @@ const Modal = (props) => {
       <div id='modal-text'>
         <i onClick={props.handleCancelNewTeam} className="fa-solid fa-x"></i>
         <h1>Team Name</h1>
-        <form>
-          <button onClick={handleSubmitModalForm}>Submit</button>
+        <form onSubmit={handleSubmitModalForm}>
           <label htmlFor="name">Your Team Name: </label>
           <input type="text" name="name" placeholder='Team 1' value={newTeam.name} onChange={handleChange}/>
           <br />
