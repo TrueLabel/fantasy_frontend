@@ -5,11 +5,12 @@ import axios from 'axios'
 const TopPlayers = (props) => {
     let [topPlayersAPI, setTopPlayersAPI] = useState([]);
     let [topPlayers, setTopPlayers] = useState([]);
-    let [year, setYear] = useState(2021);
-    let [week, setWeek] = useState(10);
-  
+    let [year, setYear] = useState(2022);
+    let [week, setWeek] = useState(1);
+
 const getTopPlayersAPI = (year, week) => {
-    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/' + String(year) + 'REG/' + String(week) + '?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+  console.log(year);
+    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/' + String(year) + 'REG/' + String(week) + '?key=458e4d8b7fd847348de5b8891eedc940')
     .then((response) => {
         let sliceplayers = setTopPlayers(response.data.sort((a, b) => Number(b.FantasyPointsDraftKings) - Number(a.FantasyPointsDraftKings))
         .slice(0, 15));
@@ -17,10 +18,10 @@ const getTopPlayersAPI = (year, week) => {
   };
 
 
-//   const handleTopPlayers = (event) => {
-//     document.getElementById('topPlayers').classList.toggle('showhide');
-//   };
-  
+  const handleTopPlayers = (event) => {
+    document.getElementById('topPlayers').classList.toggle('showhide');
+  };
+
 
   useEffect(() => {
     getTopPlayersAPI(year, week)
@@ -51,13 +52,21 @@ const getTopPlayersAPI = (year, week) => {
       <form>
       {/* <button onClick={handleTopPlayers}>Hide</button> */}
       <button onClick={handleSubmitTop}>Submit</button>
-      <label htmlFor="year">Season: </label>
+      <table>
+        <tr>
+            <td><label htmlFor="year">Season: </label></td>
+            
+            <td><label htmlFor="week">Week: </label></td>
+        </tr>
+        <tr>
+            <td>
         <select value={year} onChange={e=>setYear(e.target.value)}>
             <option>2021</option>
             <option>2022</option>
         </select>
         {/* <input type="text" name="year" onChange={handleChangeYear} /> */}
-        <label htmlFor="week">Week: </label>
+        </td>
+        <td>
         <select value={week} onChange={e=>setWeek(e.target.value)}>
             <option>1</option>
             <option>2</option>
@@ -76,17 +85,20 @@ const getTopPlayersAPI = (year, week) => {
             <option>15</option>
             <option>16</option>
             <option>17</option>
-            
+
         </select>
+        </td>
+        </tr>
+        </table>
         {/* <input type="text" name="week" onChange={handleChangeWeek}/> */}
         </form>
       <table>
         <thead>
           <tr>
             <td></td>
-            <td>Name</td>
-            <td>Score</td>
-            <td>Team</td>
+            <td><h2>Name</h2></td>
+            <td><h2>Score</h2></td>
+            <td><h2>Team</h2></td>
           </tr>
         </thead>
         <tbody>
