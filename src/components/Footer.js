@@ -4,7 +4,8 @@ import '../App.scss';
 const Footer = (props) => {
 
     return (
-        <div className="Footer">
+        
+        <div className="footer">
         <div className='leftDiv'>
 <h3>Created By </h3>
         </div>
@@ -17,9 +18,9 @@ const Footer = (props) => {
 
         <div className='rightDiv'>
 
-
+</div>  
         </div>
-      </div>
+     
     )
   }
 
