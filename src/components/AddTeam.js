@@ -153,13 +153,13 @@ const AddTeam = (props) => {
         <tbody>
         {playersAPI.map((player,index) => {
           return (
-            <tr key={player.PlayerID}>
+            <tr key={player.PlayerID} className='add-player-row'>
               <td>{player.Name}</td>
               <td>{player.Position}</td>
               <td>{player.ProjectedFantasyPoints}</td>
               <td>{player.Team}</td>
               <td>
-                <button className='add-player-btn' onClick={addPlayerString} value={player.PlayerID}>Add
+                <button className='add-player-btn' onClick={addPlayerString} value={player.PlayerID}>Draft
                 </button>
               </td>
             </tr>
