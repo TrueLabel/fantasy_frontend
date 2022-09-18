@@ -7,9 +7,9 @@ const TopPlayers = (props) => {
     let [topPlayers, setTopPlayers] = useState([]);
     let [year, setYear] = useState(2022);
     let [week, setWeek] = useState(1);
-  
+
 const getTopPlayersAPI = () => {
-    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/2021REG/7?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/2021REG/7?key=458e4d8b7fd847348de5b8891eedc940')
     .then((response) => {
         let sliceplayers = setTopPlayers(response.data.sort((a, b) => Number(b.FantasyPointsDraftKings) - Number(a.FantasyPointsDraftKings))
         .slice(0, 15));
@@ -20,7 +20,7 @@ const getTopPlayersAPI = () => {
   const handleTopPlayers = (event) => {
     document.getElementById('topPlayers').classList.toggle('showhide');
   };
-  
+
 
   useEffect(() => {
     getTopPlayersAPI()
