@@ -49,8 +49,8 @@ main {
 .footer {
   background-color: rgb(181, 181, 181);
   width: 100%;
-  height: px;
-  margin-top: 65px;
+  height: auto;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -69,10 +69,11 @@ text-align: center;
 }
 
 .footer-content h3{
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 400;
-  text-transform: capitalize;
   line-height: 3rem;
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .github{
@@ -80,14 +81,10 @@ text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0 3rem 0;
+
 }
 
 .footer-bottom{
-font-size: 10;
-
-
-
 
 }
 

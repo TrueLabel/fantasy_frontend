@@ -1,4 +1,4 @@
-import '../App.scss';
+import '../App.css';
 
 
 const Footer = (props) => {
@@ -18,9 +18,12 @@ const Footer = (props) => {
 
         </div>
 
-
         <div className='footer-bottom'>
-<p> copyright 2022 </p>
+<p> Created By</p>
+<p>Zane Fink</p>
+<p>Tyler Nenninger
+ </p>
+<p>Kevin Ricks</p>
 </div>  
         </div>
         </div>
