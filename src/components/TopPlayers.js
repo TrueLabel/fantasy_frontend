@@ -17,9 +17,9 @@ const getTopPlayersAPI = (year, week) => {
   };
 
 
-  const handleTopPlayers = (event) => {
-    document.getElementById('topPlayers').classList.toggle('showhide');
-  };
+//   const handleTopPlayers = (event) => {
+//     document.getElementById('topPlayers').classList.toggle('showhide');
+//   };
   
 
   useEffect(() => {
@@ -45,11 +45,11 @@ const getTopPlayersAPI = (year, week) => {
 
   return (
 
-    <div className='showhide' id='topPlayers'>
+    <div>
 
       <h4>Top Players</h4>
       <form>
-      <button onClick={handleTopPlayers}>Hide</button>
+      {/* <button onClick={handleTopPlayers}>Hide</button> */}
       <button onClick={handleSubmitTop}>Submit</button>
       <label htmlFor="year">Season: </label>
         <select value={year} onChange={e=>setYear(e.target.value)}>

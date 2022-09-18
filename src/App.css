@@ -20,14 +20,17 @@
 }
 
 #topPlayers {
-  position:fixed;
-  top: 0px;
-  right: 0px;
-  width: 30em;
-  height: 100%;
+  float:right;
+  margin-top: 150px;
+  height: 60em;
   background-color: white;
   overflow: scroll;
-  z-index: 6;
+  z-index: 2;
+}
+
+#teamInfo {
+  float: left;
+  width: 60%;
 }
 
 .header {
