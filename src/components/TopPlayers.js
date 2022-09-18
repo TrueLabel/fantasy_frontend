@@ -7,9 +7,10 @@ const TopPlayers = (props) => {
     let [topPlayers, setTopPlayers] = useState([]);
     let [year, setYear] = useState(2021);
     let [week, setWeek] = useState(10);
-  
+
 const getTopPlayersAPI = (year, week) => {
-    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/' + String(year) + 'REG/' + String(week) + '?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+  console.log(year);
+    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/PlayerGameStatsByWeek/' + String(year) + 'REG/' + String(week) + '?key=458e4d8b7fd847348de5b8891eedc940')
     .then((response) => {
         let sliceplayers = setTopPlayers(response.data.sort((a, b) => Number(b.FantasyPointsDraftKings) - Number(a.FantasyPointsDraftKings))
         .slice(0, 15));
@@ -20,7 +21,7 @@ const getTopPlayersAPI = (year, week) => {
   const handleTopPlayers = (event) => {
     document.getElementById('topPlayers').classList.toggle('showhide');
   };
-  
+
 
   useEffect(() => {
     getTopPlayersAPI(year, week)
@@ -76,7 +77,7 @@ const getTopPlayersAPI = (year, week) => {
             <option>15</option>
             <option>16</option>
             <option>17</option>
-            
+
         </select>
         {/* <input type="text" name="week" onChange={handleChangeWeek}/> */}
         </form>
