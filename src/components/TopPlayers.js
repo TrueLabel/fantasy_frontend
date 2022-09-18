@@ -19,6 +19,7 @@ const getTopPlayersAPI = (year, week) => {
 
 
   const handleTopPlayers = (event) => {
+    event.preventDefault()
     document.getElementById('topPlayers').classList.toggle('showhide');
   };
 

@@ -67,5 +67,25 @@
 
 .grid{
 text-align: center;
+}
+
+
+/* ADD TEAM COMPONENT */
+#addteam {
+  width: 100%;
+  z-index: 5;
+  background-color: rgb(251, 251, 251);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  text-align: center;
+}
+.add-title {
+  font-family: 'Alfa Slab One', cursive;
+}
+#addteam > ol {
+  margin: 0 auto;
+  width: 60%;
+  text-align: left;
 
 }

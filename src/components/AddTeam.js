@@ -126,13 +126,13 @@ const AddTeam = (props) => {
   return (
     <div className='showhide' id='addteam'>
       <Modal  handleCancelNewTeam={handleCancelNewTeam} handleSubmitModal={handleSubmitModal}/>
-      <h4>Add Team Component</h4>
-      {newTeam.name}
+      <h1 className='add-title'>Pick Your Players!</h1>
+      <h3>{newTeam.name}</h3>
       {newTeam.players.split(',').map((playerId) => {
         return(
-          <ul>
+          <ol>
             <PlayerName playerId={playerId} />
-          </ul>
+          </ol>
         )
       })}
       <button onClick={handleSubmitNewTeam}>Submit Team</button>
