@@ -29,8 +29,8 @@ const AddTeam = (props) => {
 
   //FUNCTIONS
   const getPlayersAPI = (start) => {
-    //console.log(start, typeof start, 'start');
-    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=c2d4f67c78294cd4a5ef2cdf2a957a31')
+    console.log(start, typeof start, 'start');
+    axios.get('https://api.sportsdata.io/v3/nfl/stats/json/FantasyPlayers?key=458e4d8b7fd847348de5b8891eedc940')
     .then((response) => {
 
       //setPlayersAPI(response.data.slice(3, 6))
