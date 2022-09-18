@@ -38,9 +38,9 @@ const PlayerName = (props) => {
   return (
     <div key={props.playerId}>
       {props.playerId.length > 4 ?
-        <li>{playerInfo.Name}, {playerInfo.Position}, {playerInfo.Team}</li>
+        <div>{playerInfo.Name}, {playerInfo.Position}, {playerInfo.Team}</div>
           :
-        <li>{playerInfo.Team}, Defense, {playerInfo.Team}</li>
+        <div>{playerInfo.Team}, Defense, {playerInfo.Team}</div>
       }
     </div>
 
