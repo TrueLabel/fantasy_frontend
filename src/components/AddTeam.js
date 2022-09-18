@@ -126,18 +126,22 @@ const AddTeam = (props) => {
   return (
     <div className='showhide' id='addteam'>
       <Modal  handleCancelNewTeam={handleCancelNewTeam} handleSubmitModal={handleSubmitModal}/>
-      <h4>Add Team Component</h4>
-      {newTeam.name}
-      {newTeam.players.split(',').map((playerId) => {
-        return(
-          <ul>
-            <PlayerName playerId={playerId} />
-          </ul>
-        )
-      })}
-      <button onClick={handleSubmitNewTeam}>Submit Team</button>
-      <button onClick={handleCancelNewTeam}>Cancel</button>
-      <table>
+      <h1 className='add-title'>{newTeam.name}</h1>
+      <h2>Pick Your Players!</h2>
+      <div className='new-drafted-container'>
+        {newTeam.players.split(',').map((playerId) => {
+          return(
+            <div className='new-drafted-item'>
+              <PlayerName playerId={playerId} />
+            </div>
+          )
+        })}
+      </div>
+      <div className='addteam-button-container'>
+        <button className='addteam-confirm' onClick={handleSubmitNewTeam}>Submit Team</button>
+        <button className='addteam-cancel' onClick={handleCancelNewTeam}>Cancel Draft</button>
+      </div>
+      <table className='addteam-table'>
         <thead>
           <tr>
             <td>Name</td>
@@ -155,7 +159,7 @@ const AddTeam = (props) => {
               <td>{player.ProjectedFantasyPoints}</td>
               <td>{player.Team}</td>
               <td>
-                <button onClick={addPlayerString} value={player.PlayerID}>Add
+                <button className='add-player-btn' onClick={addPlayerString} value={player.PlayerID}>Add
                 </button>
               </td>
             </tr>
@@ -169,3 +173,9 @@ const AddTeam = (props) => {
 }
 
 export default AddTeam
+
+// <div>
+//   <li>Jonathan Taylor, RB, Colts</li>
+//   <li>Josh Allen, QB, Bills</li>
+//   <li>Texans, DEF, Texans</li>
+// </div>

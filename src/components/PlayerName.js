@@ -7,7 +7,7 @@ const PlayerName = (props) => {
   // let [defenseInfo, setDefenseInfo] = useState([])
 
   const getPlayerInfo = () => {
-    console.log(props.playerId);
+    //console.log(props.playerId);
     props.playerId.length > 4 ?
       axios.get('https://api.sportsdata.io/v3/nfl/projections/json/PlayerSeasonProjectionStatsByPlayerID/2022REG/' + props.playerId + '?key=458e4d8b7fd847348de5b8891eedc940')
       .then((response) => {
@@ -38,9 +38,9 @@ const PlayerName = (props) => {
   return (
     <div key={props.playerId}>
       {props.playerId.length > 4 ?
-        <li>{playerInfo.Name}, {playerInfo.Position}, {playerInfo.Team}</li>
+        <div>{playerInfo.Name}, {playerInfo.Position}, {playerInfo.Team}</div>
           :
-        <li>{playerInfo.Team}, Defense, {playerInfo.Team}</li>
+        <div>{playerInfo.Team}, Defense, {playerInfo.Team}</div>
       }
     </div>
 
