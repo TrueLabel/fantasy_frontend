@@ -92,6 +92,8 @@ text-align: center;
   width: 60%;
   text-align: center;
   margin: 1em 0;
+  margin-right: 5em;
+  border-right: 2px solid black;
 }
 .teams-teamname {
   margin: .5em 0;
@@ -287,6 +289,6 @@ background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255, 255, 255, 0.5) 6
 
 #xbutton:hover {
   background-color: rgb(224, 224, 224);
-  
-  
+
+
 }
