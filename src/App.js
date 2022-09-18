@@ -1,3 +1,4 @@
+// import './App.scss';
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
@@ -80,7 +81,6 @@ const App = () => {
 
       <button className='divbutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} />
-      <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
       </div>
       <div id='topplayers'> <TopPlayers /></div>
