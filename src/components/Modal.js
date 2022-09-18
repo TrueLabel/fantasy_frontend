@@ -17,7 +17,7 @@ const Modal = (props) => {
   return (
     <div id='modal'>
       <div id='modal-text'>
-        <i onClick={props.handleCancelNewTeam} className="fa-solid fa-x"></i>
+        <i id='xbutton' onClick={props.handleCancelNewTeam} className="fa-solid fa-x"></i>
         <h1>Team Name</h1>
         <form onSubmit={handleSubmitModalForm}>
           <label htmlFor="name">Your Team Name: </label>
@@ -25,8 +25,6 @@ const Modal = (props) => {
           <br />
           <br />
           <input className='submit-modal' type="submit"/>
-          <button className='cancel-modal' onClick={props.handleCancelNewTeam}>Cancel
-          </button>
         </form>
 
       </div>
