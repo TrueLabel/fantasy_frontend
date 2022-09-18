@@ -123,11 +123,26 @@ text-align: center;
 }
 .addteam-table {
   margin: .3em auto;
-  width: 75%
+  width: 75%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
 }
 .addteam-table > thead {
   font-weight: bold;
 }
 .add-player-btn {
   cursor: pointer;
+  margin: 1em;
+  padding: .2em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid #3474e3;
+  background-color: #3474e3;
+}
+.add-player-row {
+  margin: 1em;
+  padding: 1em;
+  border: 2px solid #3474e3;
+  border-radius: 5px;
 }
