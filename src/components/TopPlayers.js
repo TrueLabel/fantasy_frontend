@@ -47,13 +47,13 @@ const getTopPlayersAPI = (year, week) => {
 
   return (
 
-    <div>
-
-      <h4>Top Players</h4>
+    <div className='topplayersdiv'>
+      <div className='topplayershead'>
+      <h2>Top Players</h2>
       <form>
       {/* <button onClick={handleTopPlayers}>Hide</button> */}
-      <button onClick={handleSubmitTop}>Submit</button>
-      <table>
+      
+      <table className='topplayerstable'>
         <tr>
             <td><label htmlFor="year">Season: </label></td>
             
@@ -92,24 +92,27 @@ const getTopPlayersAPI = (year, week) => {
         </tr>
         </table>
         {/* <input type="text" name="week" onChange={handleChangeWeek}/> */}
+        <button onClick={handleSubmitTop}>Submit</button>
         </form>
-      <table>
+        </div>
+
+      <table className='topplayerstable'>
         <thead>
           <tr>
-            <td></td>
-            <td><h2>Name</h2></td>
-            <td><h2>Score</h2></td>
-            <td><h2>Team</h2></td>
+            <td className='topplayersdata'></td>
+            <td className='topplayersdata'><h4>Name</h4></td>
+            <td className='topplayersdata'><h4>Score</h4></td>
+            <td className='topplayersdata'><h4>Team</h4></td>
           </tr>
         </thead>
         <tbody>
         {topPlayers.map((player,index) => {
           return (
-            <tr key={player.PlayerID}>
-              <td>{index + 1}</td>
-              <td>{player.Name}</td>
-              <td>{player.FantasyPointsDraftKings}</td>
-              <td>{player.Team}</td>
+            <tr key={player.PlayerID} className='topplayersrow'>
+              <td className='topplayersdata'>{index + 1}</td>
+              <td className='topplayersdata'>{player.Name}</td>
+              <td className='topplayersdata'>{player.FantasyPointsDraftKings}</td>
+              <td className='topplayersdata'>{player.Team}</td>
             </tr>
           )
         })}
