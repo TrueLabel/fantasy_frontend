@@ -73,7 +73,7 @@ const App = () => {
 
   return (
     <>
-    
+
     <div><Header /></div>
     <div id='spacer'></div>
     <div id='topplayers'> <TopPlayers /></div>
@@ -85,7 +85,6 @@ const App = () => {
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} />
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
       </div>
-      <div id='topplayers'> <TopPlayers /></div>
       <Footer />
 
     </>
