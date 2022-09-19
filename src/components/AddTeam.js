@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import Modal from '../components/Modal'
 import PlayerName from '../components/PlayerName'
+import Footer from '../components/Footer'
 
 const AddTeam = (props) => {
   //STATES
@@ -166,9 +167,9 @@ const AddTeam = (props) => {
           )
         })}
         </tbody>
-       
-      </table>
 
+      </table>
+      <Footer />
     </div>
   )
 }
