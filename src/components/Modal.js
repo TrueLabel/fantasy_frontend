@@ -17,15 +17,16 @@ const Modal = (props) => {
   return (
     <div id='modal'>
       <div id='modal-text'>
-        <button onClick={props.handleCancelNewTeam}>Close</button>
-        <h1>Modal</h1>
+        <i id='xbutton' onClick={props.handleCancelNewTeam} className="fa-solid fa-x"></i>
+        <h1>Team Name</h1>
         <form onSubmit={handleSubmitModalForm}>
-          <label htmlFor="name">Team Name: </label>
-          <input type="text" name="name" value={newTeam.name} onChange={handleChange}/>
+          <label htmlFor="name">Your Team Name: </label>
+          <input type="text" name="name" placeholder='Team 1' value={newTeam.name} onChange={handleChange}/>
           <br />
           <br />
-          <input type="submit"/>
+          <input className='submit-modal' type="submit"/>
         </form>
+
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import Modal from '../components/Modal'
 import PlayerName from '../components/PlayerName'
+import Footer from '../components/Footer'
 
 const AddTeam = (props) => {
   //STATES
@@ -144,30 +145,31 @@ const AddTeam = (props) => {
       <table className='addteam-table'>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Position</td>
-            <td>Points</td>
-            <td>Team</td>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Points</th>
+            <th>Team</th>
           </tr>
         </thead>
         <tbody>
         {playersAPI.map((player,index) => {
           return (
-            <tr key={player.PlayerID}>
+            <tr key={player.PlayerID} className='add-player-row'>
               <td>{player.Name}</td>
               <td>{player.Position}</td>
               <td>{player.ProjectedFantasyPoints}</td>
               <td>{player.Team}</td>
               <td>
-                <button className='add-player-btn' onClick={addPlayerString} value={player.PlayerID}>Add
+                <button className='add-player-btn' onClick={addPlayerString} value={player.PlayerID}>Draft
                 </button>
               </td>
             </tr>
           )
         })}
         </tbody>
-      </table>
 
+      </table>
+      <Footer />
     </div>
   )
 }

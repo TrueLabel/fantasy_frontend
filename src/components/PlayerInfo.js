@@ -47,7 +47,7 @@ const PlayerInfo = (props) => {
   }, [])
 
   return (
-    <tr key={playerInfo.playerID}>
+    <tr key={playerInfo.playerID} className='teams-tablerow'>
       {props.playerId.length > 4 ?
         <td>{playerInfo.Name}</td>
         :
