@@ -73,8 +73,10 @@ const App = () => {
 
   return (
     <>
+    
     <div><Header /></div>
     <div id='spacer'></div>
+    <div id='topplayers'> <TopPlayers /></div>
     <div id= 'teamInfo'>
       <button className='divbutton topaddteambutton' onClick={() => {showAddTeam()}}>Add Team</button>
       <Teams teams={teams} handleDeleteTeam={handleDeleteTeam}/>
@@ -83,7 +85,7 @@ const App = () => {
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams} />
       <AddTeam handleCreateTeam={handleCreateTeam} teams={teams}/>
       </div>
-      <div id='topplayers'> <TopPlayers /></div>
+      
     </>
   )
 }
